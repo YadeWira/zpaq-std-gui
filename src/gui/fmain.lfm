@@ -1,0 +1,562 @@
+object FormMain: TFormMain
+  Left = 100
+  Height = 560
+  Top = 80
+  Width = 900
+  AllowDropFiles = True
+  Caption = 'ZPAQ-std'
+  ClientHeight = 560
+  ClientWidth = 900
+  Constraints.MinHeight = 400
+  Constraints.MinWidth = 600
+  DesignTimePPI = 96
+  ShowHint = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDropFiles = FormDropFiles
+  OnShow = FormShow
+  OnWindowStateChange = FormWindowStateChange
+  LCLVersion = '4.0.0.4'
+  object pnlToolbar: TPanel
+    Left = 0
+    Height = 48
+    Top = 0
+    Width = 900
+    Align = alTop
+    AutoSize = True
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 900
+    TabOrder = 0
+    object tbRight: TToolBar
+      AnchorSideTop.Control = pnlToolbar
+      AnchorSideRight.Control = pnlToolbar
+      AnchorSideRight.Side = asrBottom
+      Left = 790
+      Height = 48
+      Top = 0
+      Width = 110
+      Align = alNone
+      Anchors = [akTop, akRight]
+      AutoSize = True
+      ButtonHeight = 46
+      ButtonWidth = 48
+      EdgeBorders = [ebBottom]
+      ShowCaptions = True
+      TabOrder = 1
+      Wrapable = False
+      object tbSettings: TToolButton
+        Left = 1
+        Top = 0
+        Action = actSettings
+        AutoSize = True
+        Caption = 'Settings'
+      end
+      object tbMenu: TToolButton
+        Left = 60
+        Top = 0
+        Action = actMenu
+        AutoSize = True
+        Caption = 'Menu'
+      end
+    end
+    object tbMain: TToolBar
+      AnchorSideLeft.Control = pnlToolbar
+      AnchorSideTop.Control = pnlToolbar
+      AnchorSideRight.Control = tbRight
+      Left = 0
+      Height = 48
+      Top = 0
+      Width = 790
+      Align = alNone
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
+      ButtonHeight = 46
+      ButtonWidth = 48
+      EdgeBorders = [ebBottom]
+      ShowCaptions = True
+      TabOrder = 0
+      Wrapable = False
+      object tbOpen: TToolButton
+        Left = 1
+        Top = 0
+        Action = actOpen
+        AutoSize = True
+        Caption = 'Open'
+      end
+      object tbSep1: TToolButton
+        Left = 60
+        Height = 46
+        Top = 0
+        Style = tbsDivider
+      end
+      object tbCreate: TToolButton
+        Left = 70
+        Top = 0
+        Action = actCreate
+        AutoSize = True
+        Caption = 'Create'
+      end
+      object tbAdd: TToolButton
+        Left = 130
+        Top = 0
+        Action = actAdd
+        AutoSize = True
+        Caption = 'Add'
+      end
+      object tbExtract: TToolButton
+        Left = 190
+        Top = 0
+        Action = actExtract
+        AutoSize = True
+        Caption = 'Extract'
+      end
+      object tbExtractTo: TToolButton
+        Left = 250
+        Top = 0
+        Action = actExtractTo
+        AutoSize = True
+        Caption = 'Extract to...'
+      end
+      object tbSep2: TToolButton
+        Left = 330
+        Height = 46
+        Top = 0
+        Style = tbsDivider
+      end
+      object tbTest: TToolButton
+        Left = 340
+        Top = 0
+        Action = actTest
+        AutoSize = True
+        Caption = 'Test'
+      end
+      object tbProps: TToolButton
+        Left = 400
+        Top = 0
+        Action = actProps
+        AutoSize = True
+        Caption = 'Info'
+      end
+      object tbSep3: TToolButton
+        Left = 460
+        Height = 46
+        Top = 0
+        Style = tbsDivider
+      end
+      object tbCloseArchive: TToolButton
+        Left = 470
+        Top = 0
+        Action = actCloseArchive
+        AutoSize = True
+        Caption = 'Close'
+      end
+    end
+  end
+  object pnlPath: TPanel
+    Left = 0
+    Height = 33
+    Top = 48
+    Width = 900
+    Align = alTop
+    AutoSize = True
+    BevelOuter = bvNone
+    ChildSizing.LeftRightSpacing = 4
+    ChildSizing.TopBottomSpacing = 4
+    ClientHeight = 33
+    ClientWidth = 900
+    TabOrder = 1
+    object btnUp: TSpeedButton
+      Left = 4
+      Height = 25
+      Top = 4
+      Width = 26
+      Action = actUp
+      Align = alLeft
+      Flat = True
+      ShowCaption = False
+    end
+    object edPath: TEdit
+      Left = 34
+      Height = 25
+      Top = 4
+      Width = 634
+      Align = alClient
+      BorderSpacing.Left = 4
+      ReadOnly = True
+      TabStop = False
+      TabOrder = 0
+    end
+    object lblVersion: TLabel
+      Left = 676
+      Height = 25
+      Top = 4
+      Width = 44
+      Align = alRight
+      BorderSpacing.Left = 8
+      Caption = 'Version'
+      Layout = tlCenter
+      Visible = False
+    end
+    object cbVersion: TComboBox
+      Left = 456
+      Height = 25
+      Top = 4
+      Width = 260
+      Align = alRight
+      BorderSpacing.Left = 4
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 1
+      Visible = False
+    end
+    object edSearch: TEdit
+      Left = 676
+      Height = 25
+      Top = 4
+      Width = 220
+      Align = alRight
+      BorderSpacing.Left = 8
+      TabOrder = 2
+      TextHint = 'Search (Ctrl+F)'
+    end
+  end
+  object pnlWarnings: TPanel
+    Left = 0
+    Height = 26
+    Top = 81
+    Width = 900
+    Align = alTop
+    AutoSize = True
+    BevelOuter = bvNone
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 3
+    ClientHeight = 26
+    ClientWidth = 900
+    Color = clInfoBk
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    Visible = False
+    object imgWarning: TImage
+      Left = 6
+      Height = 20
+      Top = 3
+      Width = 16
+      Align = alLeft
+      Center = True
+      Proportional = True
+      Stretch = True
+    end
+    object lblWarning: TLabel
+      Left = 28
+      Height = 20
+      Top = 3
+      Width = 844
+      Align = alClient
+      BorderSpacing.Left = 6
+      Font.Color = clInfoText
+      Layout = tlCenter
+      ParentFont = False
+      WordWrap = True
+    end
+    object btnCloseWarning: TSpeedButton
+      Left = 872
+      Height = 20
+      Top = 3
+      Width = 22
+      Align = alRight
+      Flat = True
+      ShowCaption = False
+      OnClick = btnCloseWarningClick
+    end
+  end
+  object sbMain: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 537
+    Width = 900
+    Panels = <
+      item
+        Width = 360
+      end
+      item
+        Width = 190
+      end
+      item
+        Width = 210
+      end
+      item
+        Width = 50
+      end>
+    SimplePanel = False
+  end
+  object pnlWelcome: TPanel
+    Left = 0
+    Height = 430
+    Top = 107
+    Width = 900
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 430
+    ClientWidth = 900
+    Color = clWindow
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 3
+    OnResize = pnlWelcomeResize
+    object imgWelcomeApp: TImage
+      AnchorSideLeft.Control = pnlWelcome
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = pnlWelcome
+      Left = 386
+      Height = 128
+      Top = 50
+      Width = 128
+      BorderSpacing.Top = 50
+      Center = True
+      Proportional = True
+      Stretch = True
+    end
+    object lblWelcomeTitle: TLabel
+      AnchorSideLeft.Control = pnlWelcome
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = imgWelcomeApp
+      AnchorSideTop.Side = asrBottom
+      Left = 400
+      Height = 30
+      Top = 186
+      Width = 100
+      BorderSpacing.Top = 8
+      Caption = 'ZPAQ-std'
+      Font.Size = 16
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblWelcomeHint: TLabel
+      AnchorSideLeft.Control = pnlWelcome
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = lblWelcomeTitle
+      AnchorSideTop.Side = asrBottom
+      Left = 350
+      Height = 17
+      Top = 220
+      Width = 200
+      BorderSpacing.Top = 4
+      Caption = 'Open an archive or drop files here'
+    end
+    object pnlWelcomeButtons: TPanel
+      AnchorSideLeft.Control = pnlWelcome
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = lblWelcomeHint
+      AnchorSideTop.Side = asrBottom
+      Left = 300
+      Height = 30
+      Top = 253
+      Width = 300
+      AutoSize = True
+      BorderSpacing.Top = 16
+      BevelOuter = bvNone
+      ChildSizing.HorizontalSpacing = 12
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 2
+      ClientHeight = 30
+      ClientWidth = 300
+      ParentColor = True
+      TabOrder = 0
+      object btnWelcomeOpen: TButton
+        Left = 0
+        Height = 30
+        Top = 0
+        Width = 144
+        Action = actOpen
+        AutoSize = True
+        Caption = 'Open archive...'
+        Constraints.MinWidth = 140
+        TabOrder = 0
+      end
+      object btnWelcomeCreate: TButton
+        Left = 156
+        Height = 30
+        Top = 0
+        Width = 144
+        Action = actCreate
+        AutoSize = True
+        Caption = 'Create archive...'
+        Constraints.MinWidth = 140
+        TabOrder = 1
+      end
+    end
+    object lblRecentTitle: TLabel
+      AnchorSideLeft.Control = pnlWelcome
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = pnlWelcomeButtons
+      AnchorSideTop.Side = asrBottom
+      Left = 400
+      Height = 17
+      Top = 307
+      Width = 100
+      BorderSpacing.Top = 24
+      Caption = 'Recent archives'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object pnlRecentList: TPanel
+      AnchorSideLeft.Control = pnlWelcome
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = lblRecentTitle
+      AnchorSideTop.Side = asrBottom
+      Left = 375
+      Height = 20
+      Top = 328
+      Width = 150
+      AutoSize = True
+      BorderSpacing.Top = 4
+      BevelOuter = bvNone
+      ChildSizing.VerticalSpacing = 2
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 20
+      ClientWidth = 150
+      ParentColor = True
+      TabOrder = 1
+      object lblNoRecent: TLabel
+        Left = 0
+        Height = 17
+        Top = 0
+        Width = 150
+        Caption = 'No recent archives yet'
+      end
+    end
+  end
+  object alMain: TActionList
+    OnUpdate = alMainUpdate
+    Left = 48
+    Top = 160
+    object actOpen: TAction
+      Caption = 'Open...'
+      Enabled = False
+      Hint = 'Open an archive (Ctrl+O)'
+      ShortCut = 16463
+    end
+    object actCreate: TAction
+      Caption = 'Create archive...'
+      Enabled = False
+      Hint = 'Create a new archive (Ctrl+N)'
+      ShortCut = 16462
+    end
+    object actAdd: TAction
+      Caption = 'Add files...'
+      Enabled = False
+      Hint = 'Add files to the open archive (Ctrl+Shift+A)'
+      ShortCut = 24641
+    end
+    object actExtract: TAction
+      Caption = 'Extract'
+      Enabled = False
+      Hint = 'Extract next to the archive (Ctrl+Shift+E)'
+      ShortCut = 24645
+    end
+    object actExtractTo: TAction
+      Caption = 'Extract to...'
+      Enabled = False
+      Hint = 'Extract to a folder of your choice (Ctrl+E)'
+      ShortCut = 16453
+    end
+    object actTest: TAction
+      Caption = 'Test archive'
+      Enabled = False
+      Hint = 'Test the archive (Ctrl+T)'
+      ShortCut = 16468
+    end
+    object actProps: TAction
+      Caption = 'Properties'
+      Enabled = False
+      Hint = 'Archive properties (Alt+Enter)'
+      ShortCut = 32781
+    end
+    object actCloseArchive: TAction
+      Caption = 'Close archive'
+      Enabled = False
+      Hint = 'Close the archive (Ctrl+W)'
+      ShortCut = 16471
+    end
+    object actReload: TAction
+      Caption = 'Reload'
+      Enabled = False
+      Hint = 'Read the archive again (F5)'
+      ShortCut = 116
+    end
+    object actFind: TAction
+      Caption = 'Search'
+      Enabled = False
+      Hint = 'Search in the archive (Ctrl+F)'
+      ShortCut = 16454
+    end
+    object actUp: TAction
+      Caption = 'Up'
+      Enabled = False
+      Hint = 'Up one level (Backspace)'
+    end
+    object actSettings: TAction
+      Caption = 'Settings...'
+      Enabled = False
+      Hint = 'Settings (Ctrl+,)'
+      ShortCut = 16572
+    end
+    object actMenu: TAction
+      Caption = 'Menu'
+      Hint = 'Menu'
+      OnExecute = actMenuExecute
+    end
+    object actAbout: TAction
+      Caption = 'About ZPAQ-std'
+      Hint = 'About ZPAQ-std (F1)'
+      OnExecute = actAboutExecute
+      ShortCut = 112
+    end
+    object actExit: TAction
+      Caption = 'Exit'
+      Hint = 'Close ZPAQ-std'
+      OnExecute = actExitExecute
+    end
+  end
+  object pmMain: TPopupMenu
+    Alignment = paRight
+    Left = 120
+    Top = 160
+    object miOpen: TMenuItem
+      Action = actOpen
+    end
+    object miRecent: TMenuItem
+      Caption = 'Recent'
+    end
+    object miCloseArchive: TMenuItem
+      Action = actCloseArchive
+    end
+    object miSep1: TMenuItem
+      Caption = '-'
+    end
+    object miReload: TMenuItem
+      Action = actReload
+    end
+    object miProps: TMenuItem
+      Action = actProps
+    end
+    object miSep2: TMenuItem
+      Caption = '-'
+    end
+    object miSettings: TMenuItem
+      Action = actSettings
+    end
+    object miAbout: TMenuItem
+      Action = actAbout
+    end
+    object miSep3: TMenuItem
+      Caption = '-'
+    end
+    object miExit: TMenuItem
+      Action = actExit
+    end
+  end
+end

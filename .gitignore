@@ -1,0 +1,41 @@
+# Build output (tools/build.sh, lazbuild, the Lazarus IDE)
+/bin/
+lib/
+*.o
+*.ppu
+*.a
+*.or
+*.compiled
+*.rst
+*.rsj
+*.res
+!/third_party/**/*.res
+ppas.sh
+ppas.bat
+*.dbg
+heap.trc
+
+# Binaries
+*.exe
+*.dll
+*.so
+/src/zpaq-std-gui
+
+# Lazarus session and backup files, editor leftovers
+*.lps
+backup/
+*.bak
+*.orig
+*.rej
+*~
+*.swp
+
+# Package outputs (tools/package.sh, installer)
+/dist/
+ZPAQ-std-*.zip
+ZPAQ-std-*.tar.gz
+*-setup.exe
+
+# Python tools
+__pycache__/
+*.pyc

@@ -1,0 +1,124 @@
+; Archivo de idioma de ZPAQ-std: español. Se traduce desde lang/en.zsl (ver lang/README.md).
+; Líneas: clave = valor. Escapes: \n salto de línea, \t tabulador, \\ barra invertida, \s espacio
+; (conserva un espacio al principio o al final). Los marcadores como {name} los rellena el
+; programa: se dejan tal cual, aunque pueden cambiar de lugar dentro del texto.
+
+[info]
+code = es
+name = Español
+english_name = Spanish
+author = YadeWira
+app_version = 0.0.1
+
+; ---- ventana principal: componentes (<componente>, <componente>.hint, <componente>.texthint)
+[formmain]
+; acciones: el texto de los menús y la ayuda emergente de los botones de la barra
+actopen = Abrir...
+actopen.hint = Abrir un archivo comprimido (Ctrl+O)
+actcreate = Crear archivo comprimido...
+actcreate.hint = Crear un archivo comprimido nuevo (Ctrl+N)
+actadd = Añadir archivos...
+actadd.hint = Añadir archivos al archivo comprimido abierto (Ctrl+Mayús+A)
+actextract = Extraer
+actextract.hint = Extraer junto al archivo comprimido (Ctrl+Mayús+E)
+actextractto = Extraer en...
+actextractto.hint = Extraer en otra carpeta (Ctrl+E)
+acttest = Probar archivo comprimido
+acttest.hint = Comprobar si el archivo comprimido tiene errores (Ctrl+T)
+actprops = Propiedades
+actprops.hint = Propiedades del archivo comprimido (Alt+Intro)
+actclosearchive = Cerrar archivo comprimido
+actclosearchive.hint = Cerrar el archivo comprimido (Ctrl+W)
+actreload = Recargar
+actreload.hint = Volver a leer el archivo comprimido (F5)
+actfind = Buscar
+actfind.hint = Buscar en el archivo comprimido (Ctrl+F)
+actup = Subir
+actup.hint = Subir un nivel (Retroceso)
+actsettings = Ajustes...
+actsettings.hint = Ajustes (Ctrl+,)
+actmenu = Menú
+actmenu.hint = Menú
+actabout = Acerca de ZPAQ-std
+actabout.hint = Acerca de ZPAQ-std (F1)
+actexit = Salir
+actexit.hint = Cerrar ZPAQ-std
+; textos de la barra de herramientas (cortos; la ayuda emergente viene de la acción)
+tbopen = Abrir
+tbcreate = Crear
+tbadd = Añadir
+tbextract = Extraer
+tbextractto = Extraer en...
+tbtest = Probar
+tbprops = Info
+tbclosearchive = Cerrar
+tbsettings = Ajustes
+tbmenu = Menú
+; menú, barra de ruta y franja de avisos
+mirecent = Recientes
+lblversion = Versión
+edsearch.texthint = Buscar (Ctrl+F)
+btnclosewarning.hint = Ocultar este aviso
+; panel de bienvenida (se ve mientras no hay ningún archivo comprimido abierto)
+lblwelcomehint = Abre un archivo comprimido o suelta archivos aquí
+btnwelcomeopen = Abrir archivo comprimido...
+btnwelcomecreate = Crear archivo comprimido...
+lblrecenttitle = Recientes
+lblnorecent = Aún no hay archivos comprimidos recientes
+
+; ---- textos en tiempo de ejecución, por tema
+[main]
+recent_empty = (vacío)
+open_not_available = Todavía no se pueden abrir archivos comprimidos: {name}
+
+[status]
+ready = Listo
+lang_failed = No se pudo cargar el archivo de idioma "{name}". Se usa el inglés.
+readonly_portable = El archivo de ajustes portable es de solo lectura. Los ajustes se guardan en {file}.
+
+[msg]
+settings_not_saved = No se pueden guardar los ajustes: {file}: {reason}
+
+[btn]
+ok = Aceptar
+close = Cerrar
+licenses = Licencias...
+
+; nombres de las teclas en los atajos que los menús muestran junto a una orden, como Alt+Intro
+[keys]
+shift = Mayús
+ctrl = Ctrl
+alt = Alt
+enter = Intro
+bksp = Retroceso
+tab = Tab
+esc = Esc
+space = Espacio
+pgup = RePág
+pgdn = AvPág
+home = Inicio
+end = Fin
+ins = Insert
+del = Supr
+left = Izquierda
+up = Arriba
+right = Derecha
+down = Abajo
+
+[about]
+title = Acerca de {name}
+description = Un gestor de archivos comprimidos para zpaq-std y 7-Zip-zstd.
+license = Licencia MIT, por Yade Bravo (YadeWira).
+credits = Créditos:
+credit_zpaq = - zpaq-std, de YadeWira, basado en zpaqfranz de Franco Corbelli y en zpaq de Matt Mahoney
+credit_7z = - 7-Zip-zstd, de Igor Pavlov, Tino Reichardt y Sergey G. Brester
+credit_icons = - Iconos: arte de PeaZip, de Giorgio Tani (LGPLv3), recoloreado a coral
+credit_tools = - Hecho con Free Pascal, Lazarus (LCL) y VirtualTreeView
+
+[cmdline]
+usage = Uso:\n  {exe} [opciones] [archivo comprimido]\n  {exe} [opciones] add | extract | test ...\n\nOpciones:\n  --lang <código | archivo.zsl>    idioma (en, es... o un archivo)\n  --theme auto | light | dark    tema de colores\n  --help    este texto\n  --version    la versión del programa\n\nLos comandos add, extract y test aún no están disponibles en esta versión.
+unknown_option = Opción desconocida: {option}
+missing_value = La opción {option} necesita un valor.
+bad_theme = Tema desconocido: {value}. Usa auto, light o dark.
+too_many = Solo se puede abrir un archivo comprimido a la vez: {value}
+task_not_available = El comando "{command}" aún no está disponible en esta versión.

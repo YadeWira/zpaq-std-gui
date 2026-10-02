@@ -1,0 +1,42 @@
+# Text files are normalised; sources always use LF, also in a Windows checkout.
+* text=auto
+
+*.pas    text eol=lf
+*.pp     text eol=lf
+*.inc    text eol=lf
+*.lpr    text eol=lf
+*.lpi    text eol=lf
+*.lpk    text eol=lf
+*.lfm    text eol=lf
+*.lrs    text eol=lf
+*.zsl    text eol=lf
+*.md     text eol=lf
+*.txt    text eol=lf
+*.ini    text eol=lf
+*.iss    text eol=lf
+*.sh     text eol=lf
+*.py     text eol=lf
+*.sha256 text eol=lf
+.gitignore     text eol=lf
+.gitattributes text eol=lf
+LICENSE        text eol=lf
+
+# Windows scripts keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files: never converted, never diffed as text
+*.png  binary
+*.ico  binary
+*.icns binary
+*.bmp  binary
+*.res  binary
+*.bin  binary
+*.zip  binary
+*.7z   binary
+*.zpaq binary
+*.exe  binary
+*.dll  binary
+
+# Raw backend output recorded for the parser tests (CR and BS bytes are part of the data)
+tests/fixtures/** -text

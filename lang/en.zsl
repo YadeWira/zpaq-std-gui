@@ -1,0 +1,124 @@
+; ZPAQ-std language file: English. This file is compiled into the program (it is the fallback for
+; every key) and it is the template for translators: see lang/README.md.
+; Lines: key = value. Escapes: \n new line, \t tab, \\ backslash, \s space (keeps a leading or
+; trailing space). Placeholders such as {name} are replaced by the program; keep them as they are.
+
+[info]
+code = en
+name = English
+english_name = English
+author = YadeWira
+app_version = 0.0.1
+
+; ---- main window: components (<component>, <component>.hint, <component>.texthint)
+[formmain]
+; actions: the text in menus and the tooltip of the toolbar buttons
+actopen = Open...
+actopen.hint = Open an archive (Ctrl+O)
+actcreate = Create archive...
+actcreate.hint = Create a new archive (Ctrl+N)
+actadd = Add files...
+actadd.hint = Add files to the open archive (Ctrl+Shift+A)
+actextract = Extract
+actextract.hint = Extract next to the archive (Ctrl+Shift+E)
+actextractto = Extract to...
+actextractto.hint = Extract to another folder (Ctrl+E)
+acttest = Test archive
+acttest.hint = Check the archive for errors (Ctrl+T)
+actprops = Properties
+actprops.hint = Archive properties (Alt+Enter)
+actclosearchive = Close archive
+actclosearchive.hint = Close the archive (Ctrl+W)
+actreload = Reload
+actreload.hint = Read the archive again (F5)
+actfind = Search
+actfind.hint = Search in the archive (Ctrl+F)
+actup = Up
+actup.hint = Up one level (Backspace)
+actsettings = Settings...
+actsettings.hint = Settings (Ctrl+,)
+actmenu = Menu
+actmenu.hint = Menu
+actabout = About ZPAQ-std
+actabout.hint = About ZPAQ-std (F1)
+actexit = Exit
+actexit.hint = Close ZPAQ-std
+; toolbar captions (short; the tooltip comes from the action)
+tbopen = Open
+tbcreate = Create
+tbadd = Add
+tbextract = Extract
+tbextractto = Extract to...
+tbtest = Test
+tbprops = Info
+tbclosearchive = Close
+tbsettings = Settings
+tbmenu = Menu
+; menu, path bar and warning strip
+mirecent = Recent
+lblversion = Version
+edsearch.texthint = Search (Ctrl+F)
+btnclosewarning.hint = Hide this warning
+; welcome panel (shown while no archive is open)
+lblwelcomehint = Open an archive or drop files here
+btnwelcomeopen = Open archive...
+btnwelcomecreate = Create archive...
+lblrecenttitle = Recent archives
+lblnorecent = No recent archives yet
+
+; ---- runtime texts, by topic
+[main]
+recent_empty = (empty)
+open_not_available = Opening archives is not available yet: {name}
+
+[status]
+ready = Ready
+lang_failed = The language file "{name}" could not be loaded. English is used.
+readonly_portable = The portable settings file is read-only. Settings are saved in {file}.
+
+[msg]
+settings_not_saved = Settings cannot be saved: {file}: {reason}
+
+[btn]
+ok = OK
+close = Close
+licenses = Licenses...
+
+; key names in the shortcuts that menus show next to a command, such as Alt+Enter
+[keys]
+shift = Shift
+ctrl = Ctrl
+alt = Alt
+enter = Enter
+bksp = Backspace
+tab = Tab
+esc = Esc
+space = Space
+pgup = PgUp
+pgdn = PgDn
+home = Home
+end = End
+ins = Ins
+del = Del
+left = Left
+up = Up
+right = Right
+down = Down
+
+[about]
+title = About {name}
+description = An archive manager for zpaq-std and 7-Zip-zstd.
+license = MIT License, by Yade Bravo (YadeWira).
+credits = Credits:
+credit_zpaq = - zpaq-std by YadeWira, based on zpaqfranz by Franco Corbelli and on zpaq by Matt Mahoney
+credit_7z = - 7-Zip-zstd by Igor Pavlov, Tino Reichardt and Sergey G. Brester
+credit_icons = - Icons: PeaZip art by Giorgio Tani (LGPLv3), recoloured to coral
+credit_tools = - Made with Free Pascal, Lazarus (LCL) and VirtualTreeView
+
+[cmdline]
+usage = Usage:\n  {exe} [options] [archive]\n  {exe} [options] add | extract | test ...\n\nOptions:\n  --lang <code | file.zsl>    language (en, es... or a file)\n  --theme auto | light | dark    colour theme\n  --help    this text\n  --version    the program version\n\nThe commands add, extract and test are not available in this version yet.
+unknown_option = Unknown option: {option}
+missing_value = The option {option} needs a value.
+bad_theme = Unknown theme: {value}. Use auto, light or dark.
+too_many = Only one archive can be opened at a time: {value}
+task_not_available = The command "{command}" is not available in this version yet.
